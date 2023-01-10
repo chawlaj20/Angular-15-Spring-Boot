@@ -1,0 +1,57 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card card-container">
+        <div class="col-md-6 offset-md-3">
+            <h3>Create Employee</h3>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="fname">First Name:</label>
+                    <input formControlName="fname" type="text" class="form-control" id="fname" 
+                    name="firstname" [(ngModel)]="employee.firstName">
+                </div>
+
+                <div *ngIf=" f['fname'].touched && f['fname'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['fname'].errors && f['fname'].errors['required']">
+                        First Name is mandatory**
+                    </div>
+                    <div *ngIf="f['fname'].errors && f['fname'].errors['minlength']">
+                        Minimum characters must be 3 characters**
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last Name:</label>
+                    <input formControlName="lname" type="text" class="form-control" id="lname" name="lastname"
+                    [(ngModel)]="employee.lastName">
+                </div>
+
+                <div *ngIf=" f['lname'].touched && f['lname'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['lname'].errors && f['lname'].errors['required']">
+                        Last Name is mandatory**
+                    </div>
+                    <div *ngIf="f['lname'].errors && f['lname'].errors['minlength']">
+                        Minimum characters must be 3 characters**
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input formControlName="email" type="text" class="form-control" id="email" name="email"
+                    [(ngModel)]="employee.email">
+                </div>
+
+                <div *ngIf=" f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['email'].errors && f['email'].errors['required']">
+                        Email is mandatory**
+                    </div>
+                    <div *ngIf="f['email'].errors && f['email'].errors['email']">
+                        Please enter correct email**
+                    </div>
+                </div>
+
+                <br>
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -28,6 +28,17 @@ export class EmployeeListComponent implements OnInit{
     );
   }
 
+  deleteEmployee(id: number)
+  {
+    this.authService.deleteEmployeeById(id).subscribe(
+      data=>
+      {
+        console.log(data);
+        window.location.reload();
+      }
+    );
+  }
+
   
     
 }
